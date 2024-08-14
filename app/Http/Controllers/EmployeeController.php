@@ -69,11 +69,10 @@ class EmployeeController extends Controller
             'name' => 'required|max:200',
             'age' => 'required|numeric',
             'gender' => 'required',
-            'email' => 'required|string|email|max:255|unique:employees,email',
+            'email' => 'required|string|email|max:255',
             'position' => 'required',
         ]);
 
-        dd($request, $employee);
         $employee->update($request->all());
 
         return redirect()->route('employee.index')
